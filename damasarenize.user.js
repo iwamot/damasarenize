@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Damasarenize
 // @namespace    http://iwamot.com/
-// @version      0.1.4
+// @version      0.1.5
 // @author       IWAMOTO Takashi <hello@iwamot.com> http://iwamot.com/
 // @description  虚構新聞へのリンクを分かりやすくします。
 // @include      http://*
@@ -207,7 +207,7 @@
       }
 
       function urlResolvedCallback(resolvedURL) {
-        if (isKyokoURL(resolvedURL)) {
+        if (isKyokoURL(resolvedURL) && anchor.text.indexOf('虚構新聞') === -1) {
           anchor.innerHTML = ANCHOR_PREFIX + anchor.innerHTML;
         }
         if (anchor.href !== resolvedURL && REPLACE_HREF) {
